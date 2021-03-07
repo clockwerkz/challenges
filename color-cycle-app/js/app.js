@@ -1,6 +1,6 @@
 const inputForm = document.querySelector(".color__form");
 inputForm.addEventListener("submit", handleFormSubmit);
-
+let currentInterval = null;
 
 function handleFormSubmit(event) {
     event.preventDefault();
@@ -10,10 +10,15 @@ function handleFormSubmit(event) {
     }
     let newColor = input;
     setBoxColor(newColor);
-    setInterval(()=>{
+    console.log(newColor);
+    if (currentInterval !== null) {
+        clearInterval(currentInterval);
+        currentInterval = null;
+    }
+    currentInterval = setInterval(()=>{
         newColor = incrementHexValue(newColor, 3);
         setBoxColor(newColor);
-    }, 250);
+    }, 500);
 }
 
 function setBoxColor(color) {
@@ -35,6 +40,9 @@ function hexCodeValue(hexDigit) {
 }
 
 function incrementHexValue(hexCode, increment) {
+    if (hexCode.length == 3) {
+        hexCode = hexCode.split("").map(ltr => ltr + ltr).join('');
+    }
     const hexValues = hexCode.match(/[a-fA-F0-9]{2}/g);
     incrementedHexVal = ''
     hexValues.forEach(val => {
