@@ -8,13 +8,20 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="color">
-        <div class="color__box"></div>
-        <form class="color__form">
-            <input type="text" class="color__input" placeholder="enter color value"/>
-            <button class="btn" type="submit">Submit</button>
-        </form>
-    </div>
+    <div class="container">
+        <div class="color">
+            <div class="color__box"></div>
+            <p class="color__description">Enter the R, G and B hex values for the starting color:</p>
+            <form class="color__form">
+                <div class="color__input-control">
+                    <input type="text" class="color__input color__input--r" placeholder="R" />
+                    <input type="text" class="color__input color__input--g" placeholder="G" />
+                    <input type="text" class="color__input color__input--b" placeholder="B" />
+                </div> <!-- .color__input-control -->
+                <button class="btn" type="submit">Submit</button>
+            </form>
+        </div> <!-- .color -->
+    </div> <!-- .container -->
     <script src="js/app.js"></script>
 </body>
 </html>

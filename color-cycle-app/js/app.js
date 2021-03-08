@@ -4,11 +4,14 @@ let currentInterval = null;
 
 function handleFormSubmit(event) {
     event.preventDefault();
-    const input = document.querySelector(".color__input").value;
-    if (input === "") {
+    const r = document.querySelector(".color__input--r").value;
+    const g = document.querySelector(".color__input--g").value;
+    const b = document.querySelector(".color__input--b").value; 
+    if (!r || !g || !b) {
         return;
     }
-    let newColor = input;
+    let newColor = r + g + b;
+    console.log(newColor);
     setBoxColor(newColor);
     console.log(newColor);
     if (currentInterval !== null) {
