@@ -5,22 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Color Cycle App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="container">
+        <h1 class="title">Color Cycler</h1>
         <div class="color">
+            <div class="color__options"><i class="fas fa-cog"></i></div>
             <div class="color__box"></div>
-            <p class="color__description">Enter the R, G and B hex values for the starting color:</p>
+            <p class="color__description">Enter the R, G and B <strong>hex</strong> values for the starting color:</p>
             <form class="color__form">
                 <div class="color__input-control">
-                    <input type="text" class="color__input color__input--r" placeholder="R" />
-                    <input type="text" class="color__input color__input--g" placeholder="G" />
-                    <input type="text" class="color__input color__input--b" placeholder="B" />
+                    <input type="text" class="color__input color__input--r" placeholder="R" maxlength="2"/>
+                    <input type="text" class="color__input color__input--g" placeholder="G" maxlength="2"/>
+                    <input type="text" class="color__input color__input--b" placeholder="B"  maxlength="2"/>
+                    <button class="btn" type="submit">
+                        <i class="fas fa-play"></i>
+                        <i class="fas fa-pause hide"></i>
+                    </button>
                 </div> <!-- .color__input-control -->
-                <button class="btn" type="submit">Submit</button>
             </form>
+            <p class="color__error-msg hide">Please enter a valid 3 or 6 digit hex code.</p>
         </div> <!-- .color -->
+        <div class="saved-colors">
+            <p class="saved-colors__label">Saved Colors</p>
+        </div>
     </div> <!-- .container -->
     <script src="js/app.js"></script>
 </body>

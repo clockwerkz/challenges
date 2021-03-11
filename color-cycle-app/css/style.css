@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital@1&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -8,16 +9,23 @@
 body {
   height: 100vh;
   background-color: #333;
+  font-family: 'Poppins', sans-serif;
 }
 
 .btn {
-  width: 100%;
   font-size: 1.5rem;
-  margin-top: 1rem;
   padding: 0.5rem;
   border: none;
-  background-color: dodgerblue;
+  background-color: inherit;
+  border: 1px solid white;
+  cursor: pointer;
+  border-radius: 10px;
   color: white;
+}
+
+.btn:hover {
+  color: lightgreen;
+  border-color: lightgreen;
 }
 
 .container {
@@ -33,12 +41,25 @@ body {
           align-items: center;
 }
 
+.hide {
+  display: none;
+}
+
+.title {
+  color: white;
+  margin: 2rem 0;
+}
+
 .color {
-  padding: 2rem 0;
-  width: 200px;
+  position: relative;
+  border: 1px solid white;
+  padding: 1rem 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin-top: 1rem;
+  width: 240px;
+  border-radius: 20px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -48,11 +69,37 @@ body {
           align-items: center;
 }
 
-.color__description {
+.color__options {
+  position: absolute;
   color: white;
-  font-size: 1rem;
-  padding: .5rem 0;
+  border: 2px solid white;
+  width: 35px;
+  height: 35px;
+  line-height: 33px;
+  font-size: 1.5rem;
   text-align: center;
+  border-radius: 50%;
+  background-color: #333;
+  top: -16px;
+  right: -16px;
+  cursor: pointer;
+}
+
+.color__options:hover {
+  color: lightgreen;
+  border-color: lightgreen;
+}
+
+.color__description {
+  color: #bababa;
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.color__description > strong {
+  color: #eee;
 }
 
 .color__box {
@@ -78,6 +125,7 @@ body {
 }
 
 .color__input-control {
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -87,10 +135,45 @@ body {
 }
 
 .color__input {
-  width: 30%;
+  width: 50px;
   border: none;
   padding: 0.5rem;
   font-size: 1.5rem;
   text-align: center;
+  margin-right: 0.2rem;
+  border-radius: 5px;
+}
+
+.color__error-msg {
+  position: absolute;
+  bottom: -55px;
+  color: salmon;
+  padding: 0 1rem;
+}
+
+.saved-colors {
+  border: 1px solid white;
+  width: 80%;
+  height: 130px;
+  margin: 5rem;
+  padding: 1rem;
+  border-radius: 15px;
+  position: relative;
+}
+
+.saved-colors__label {
+  position: absolute;
+  color: white;
+  background-color: #333;
+  display: inline-block;
+  top: -10px;
+  left: 20px;
+  padding: 0 6px;
+}
+
+.saved-colors__box {
+  width: 100px;
+  height: 100px;
+  border: 4px solid black;
 }
 /*# sourceMappingURL=style.css.map */

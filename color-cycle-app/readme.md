@@ -18,12 +18,12 @@ an RGB color specification (e.g. `#000000` color code).
         blue, and green
 - [ ] User can specify an increment value for each color component that will
         be added to that component every .25 second
-- [ ] User can see the box containing the fill color change every .25 seconds
-- [ ] User can only change the color components and their increments when
+- [X] User can see the box containing the fill color change every .25 seconds
+- [X] User can only change the color components and their increments when
         the app is stopped
-- [ ] User can start and stop the fill operation using a button whose name
+- [X] User can start and stop the fill operation using a button whose name
         changes to 'Start' when stopped and 'Stop' when started
-- [ ] User will receive an warning if something other than hexadecimal digits
+- [X] User will receive an warning if something other than hexadecimal digits
         are entered for the color components
 
 ## Bonus features

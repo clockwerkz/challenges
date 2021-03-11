@@ -1,38 +1,53 @@
 const inputForm = document.querySelector(".color__form");
-inputForm.addEventListener("submit", handleFormSubmit);
 let currentInterval = null;
+
+inputForm.addEventListener("submit", handleFormSubmit);
+const inputBoxes = document.querySelectorAll(".color__input");
+inputBoxes.forEach(box => box.addEventListener("focus", ()=>toggleErrorMessage()));
 
 function handleFormSubmit(event) {
     event.preventDefault();
+    if (currentInterval !== null) {
+        document.querySelector(".btn > .fas.fa-play").classList.remove("hide");
+        document.querySelector(".btn > .fas.fa-pause").classList.add("hide");
+        clearInterval(currentInterval);
+        currentInterval = null;
+        inputBoxes.forEach(box => box.disabled = false);
+        return;
+    }
     const r = document.querySelector(".color__input--r").value;
     const g = document.querySelector(".color__input--g").value;
     const b = document.querySelector(".color__input--b").value; 
     if (!r || !g || !b) {
+        toggleErrorMessage(true);
         return;
     }
     let newColor = r + g + b;
-    console.log(newColor);
-    setBoxColor(newColor);
-    console.log(newColor);
-    if (currentInterval !== null) {
-        clearInterval(currentInterval);
-        currentInterval = null;
+    if (!isValidHexCode(newColor)) {
+        toggleErrorMessage(true);
+        return;
     }
+    inputBoxes.forEach(box => box.disabled = true);
+    document.querySelector(".btn > .fas.fa-play").classList.add("hide");
+        document.querySelector(".btn > .fas.fa-pause").classList.remove("hide");
     currentInterval = setInterval(()=>{
         newColor = incrementHexValue(newColor, 3);
         setBoxColor(newColor);
-    }, 500);
+    }, 250);
 }
 
 function setBoxColor(color) {
-    //check if color is a valid hex or rgb color
-    const regex = /[a-fA-F0-9]{6}|[a-fA-F0-9]{3}/;
-    const validatedColor = color.match(regex);
-    if (!validatedColor || validatedColor[0].length !== color.length) {
-        return false;
-    }
     const box = document.querySelector(".color__box");
     box.style.backgroundColor = "#" + color;
+    return true;
+}
+
+function isValidHexCode(hexcode) {
+    const regex = /[a-fA-F0-9]{6}|[a-fA-F0-9]{3}/;
+    const validatedColor = hexcode.match(regex);
+    if (!validatedColor || validatedColor[0].length !== hexcode.length) {
+        return false;
+    }
     return true;
 }
 
@@ -71,4 +86,13 @@ function convertDecToHex(decimal) {
         decimal = parseInt(decimal / 16);
     }  
     return conversion;
+}
+
+function toggleErrorMessage(revealMsg = false) {
+    const errorMsg = document.querySelector(".color__error-msg");
+    if (revealMsg) {
+        errorMsg.classList.remove("hide");
+    } else {
+        errorMsg.classList.add("hide");
+    }
 }
