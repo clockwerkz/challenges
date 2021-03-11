@@ -28,8 +28,13 @@ an RGB color specification (e.g. `#000000` color code).
 
 ## Bonus features
 
--   [ ] User can change the time interval between color changes
--   [ ] User can specify the color encoding format used from RGB to another format like HSL
+- [ ] User can change the time interval between color changes
+- [ ] User can specify the color encoding format used from RGB to another format like HSL
+
+## Personal Bonus Features
+
+- [ ] User can click on a color as they cycle through, and it will be saved in the "Saved" colors section
+- [ ] User can delete a saved color box by hovering over it, and clicking on the delete button 
 
 ## Useful links and resources
 
